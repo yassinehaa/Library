@@ -30,6 +30,7 @@ import java.util.Scanner;
             int id = input.nextInt();
             for (int i=0; i<books.size();i++){
                 if (id == books.get(i).isbn) {
+                    editBook = books.get(i);
                     System.out.println("entrer nouveau isbn: ");
                     editBook.isbn = input.nextInt();
                     System.out.println("entrer nouveau titre: ");
@@ -46,7 +47,7 @@ import java.util.Scanner;
             String title = input.next();
             for (int i=0; i<books.size();i++){
                 if (title.equals(books.get(i).titre)){
-                    System.out.println(i);
+                    System.out.println(books.get(i));
                 }
             }
         }
@@ -71,6 +72,7 @@ import java.util.Scanner;
                     break;
                 case 3:
                     modifierBook();
+                    break;
                 case 4:
                    rechercherBook();
                    break;
