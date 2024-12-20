@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Scanner;
 
         static Scanner input = new Scanner(System.in);
@@ -51,6 +49,16 @@ import java.util.Scanner;
                 }
             }
         }
+        public static void supprimerBook(){
+            System.out.println("entrer le titre du livre a supprimer: ");
+            String title = input.next();
+            for (int i=0; i<books.size();i++) {
+                if (title.equals(books.get(i).titre)) {
+                    System.out.println("livbre supprimé. ");
+                books.remove(i);
+                }
+            }
+        }
     public static void main(String[] args) {
 
         int ch;
@@ -59,7 +67,8 @@ import java.util.Scanner;
             System.out.println("1: AJOUTER");
             System.out.println("2: AFFICHER");
             System.out.println("3: MODIFIER");
-            System.out.println("4: SUPPRIMER");
+            System.out.println("4: RECHERCHER");
+            System.out.println("5: SUPPRIMER");
 
             System.out.println("entrer votre choix");
             ch =input.nextInt();
@@ -76,6 +85,9 @@ import java.util.Scanner;
                 case 4:
                    rechercherBook();
                    break;
+                case 5:
+                    supprimerBook();
+                    break;
             }
         }
     }
