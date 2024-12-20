@@ -1,19 +1,58 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+        static Scanner input = new Scanner(System.in);
+        static ArrayList<Book> books = new ArrayList<>();
 
-
-
-
+        public static void ajouterBook(){
+            Book newBook = new Book();
+            System.out.println("Entrer l'ISBN: ");
+            newBook.isbn = input.nextInt();
+            System.out.println("Entrer le titre: ");
+            newBook.titre = input.next();
+            System.out.println("Entrer l'auteur: ");
+            newBook.auteur = input.next();
+            System.out.println("Entrer la disponibilité (oui/non): ");
+            newBook.dispo = input.next();
+            books.add(newBook);
+        }
+        public static void afficherBook() {
+            int i;
+            for (i = 0; i < books.size();i++);{
+                System.out.println(books);
+            }
+        }
+        public static void modifierBook(){
+            Book editBook = new Book();
+            System.out.println("entrer l'id du livre a modifier: ");
+            int id = input.nextInt();
+            for (int i=0; i<books.size();i++){
+                if (id == books.get(i).isbn) {
+                    System.out.println("entrer nouveau isbn: ");
+                    editBook.isbn = input.nextInt();
+                    System.out.println("entrer nouveau titre: ");
+                    editBook.titre = input.next();
+                    System.out.println("entrer nouvel auteur");
+                    editBook.auteur = input.next();
+                    System.out.println("entrer nouvelle disponibilité");
+                    editBook.dispo = input.next();
+                }
+            }
+        }
+        public static void rechercherBook(){
+            System.out.println("entrer le titre: ");
+            String title = input.next();
+            for (int i=0; i<books.size();i++){
+                if (title.equals(books.get(i).titre)){
+                    System.out.println(i);
+                }
+            }
+        }
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        List<Book> livres = new ArrayList<>();
-        Library library=new Library();
 
         int ch;
-
         while (true) {
             System.out.println("MENU");
             System.out.println("1: AJOUTER");
@@ -21,39 +60,20 @@ public class Main {
             System.out.println("3: MODIFIER");
             System.out.println("4: SUPPRIMER");
 
-            System.out.println("Entrer votre choix:");
-            ch = input.nextInt();
+            System.out.println("entrer votre choix");
+            ch =input.nextInt();
             switch (ch) {
                 case 1:
-                    System.out.println("Entrer l'ISBN: ");
-                    int isbn = input.nextInt();
-                    System.out.println("Entrer le titre: ");
-                    String titre = input.next();
-                    System.out.println("Entrer l'auteur: ");
-                    String auteur = input.next();
-                    System.out.println("Entrer la disponibilité (oui/non): ");
-                    String dispo = input.next();
-
-
-                    Book book = new Book(titre, auteur, dispo, isbn);
-                    library.ajouterLivre(book);
-                    System.out.println("Livre ajouté: " + book);
-
+                    ajouterBook();
                     break;
                 case 2:
-                    System.out.println("liste des livres: ");
-                       for (Book book1:library.afficherBook()){
-                        System.out.println( book1);}
-
+                    afficherBook();
                     break;
                 case 3:
-                    System.out.println("entrer le livre a modifier: ");
-                    //library.modifierBook();
-                default:
-                    System.out.println("Choix invalide!");
+                    modifierBook();
+                case 4:
+                   rechercherBook();
+                   break;
             }
         }
     }
-}
-
-
