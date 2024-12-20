@@ -13,6 +13,8 @@ public class Book {
     public Book() {
     }
 
+
+
     public String getTitre() {
         return titre;
     }
@@ -41,12 +43,19 @@ public class Book {
         return isbn;
     }
 
+
     public void setIsbn(int isbn) {
         this.isbn = isbn;
     }
 
     @Override
     public String toString() {
-        return "Livre :isbn=" + isbn + "titre=" + titre + ", auteur=" + auteur + ", dispo=" + dispo;
+        return "Livre: " +
+                "\n  isbn=" + isbn +
+                ",\n  titre=" + titre +
+                ",\n  auteur=" + auteur +
+                ",\n  dispo=" + dispo +
+                "\n";
     }
+
 }
