@@ -89,7 +89,7 @@ import java.util.Scanner;
                     supprimerBook();
                     break;
                 default:
-                    System.out.println("choix invalid");
+                    System.out.println("choix invalide");
             }
         }
     }
