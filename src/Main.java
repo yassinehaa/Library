@@ -23,7 +23,7 @@ import java.util.Scanner;
             }
         }
         public static void modifierBook(){
-            Book editBook = new Book();
+            Book editBook;
             System.out.println("entrer l'id du livre a modifier: ");
             int id = input.nextInt();
             for (int i=0; i<books.size();i++){
@@ -88,6 +88,8 @@ import java.util.Scanner;
                 case 5:
                     supprimerBook();
                     break;
+                default:
+                    System.out.println("choix invalid");
             }
         }
     }
